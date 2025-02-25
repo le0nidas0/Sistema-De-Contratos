@@ -8,7 +8,6 @@ import java.util.List;
 
 @Repository
 public interface DocumentoRepository extends JpaRepository<Documento, Long> {
-    List<Documento> findByTipo(String tipo);
-    List<Documento> findByNome(String nome);
-
+    List<Documento> findByContratoId(Long contratoId);
+    List<Documento> findByNomeContainingIgnoreCaseOrTipoContainingIgnoreCase(String nomeOuTipo, String nomeOuTipo1);
 }
