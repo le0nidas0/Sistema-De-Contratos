@@ -29,12 +29,9 @@ public class ContratoService {
     }
 
     public List<Contrato> getContratosByEmpresa(String empresaContratante) {
-        List<Contrato> contratos = contratoRepository.findByEmpresaContratanteContainingIgnoreCase(empresaContratante);
-        if (contratos.isEmpty()) {
-            throw new EntityNotFoundException("Nenhum contrato encontrado para a empresa: " + empresaContratante);
-        }
-        return contratos;
+        return contratoRepository.findByEmpresaContratanteContainingIgnoreCase(empresaContratante);
     }
+
 
 
 
@@ -62,11 +59,11 @@ public class ContratoService {
 
 
     public void deleteContrato(Long id) {
-        if (!contratoRepository.existsById(id)) {
-            throw new EntityNotFoundException("Contrato com ID " + id + " não encontrado para exclusão.");
-        }
-        contratoRepository.deleteById(id);
+        Contrato contrato = contratoRepository.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException("Contrato com ID " + id + " não encontrado para exclusão."));
+        contratoRepository.delete(contrato);
     }
+
 
 
 }
