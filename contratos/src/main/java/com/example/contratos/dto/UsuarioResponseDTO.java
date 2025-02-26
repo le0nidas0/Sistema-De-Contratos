@@ -1,6 +1,15 @@
 package com.example.contratos.dto;
 
 import com.example.contratos.model.RoleEnum;
+import lombok.*;
 
-public record UsuarioResponseDTO (Long id, String nome, String email, RoleEnum role){
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+public class UsuarioResponseDTO {
+    private Long id;
+    private String nome;
+    private String email;
+    private RoleEnum role;
 }

@@ -1,6 +1,17 @@
 package com.example.contratos.dto;
 
-import com.example.contratos.model.RoleEnum;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-public record UsuarioRequestDTO (String nome, String email, String senha, RoleEnum role){
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+public class UsuarioRequestDTO {
+    private String nome;
+    private String email;
+    private String senha;
+    private  String role;
 }

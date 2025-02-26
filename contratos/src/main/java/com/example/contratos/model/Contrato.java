@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -21,6 +22,9 @@ public class Contrato {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private String nome;
+    private String descricao;
+    private BigDecimal valor;
     private String titulo;
     private String empresaContratante;
     private LocalDate dataInicio;
@@ -37,4 +41,6 @@ public class Contrato {
     private List<Documento> documentos;
 
 
+    public Contrato(Object o, String nome, String descricao, BigDecimal valor) {
+    }
 }

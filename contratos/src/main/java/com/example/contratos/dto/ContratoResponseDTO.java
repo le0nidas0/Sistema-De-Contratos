@@ -1,6 +1,6 @@
 package com.example.contratos.dto;
 
-import java.time.LocalDate;
+import java.math.BigDecimal;
 
-public record ContratoResponseDTO (Long id, String titulo, String empresaContratante, LocalDate dataTermino, String status) {
+public record ContratoResponseDTO (Long id, String titulo, String empresaContratante, BigDecimal valor) {
 }

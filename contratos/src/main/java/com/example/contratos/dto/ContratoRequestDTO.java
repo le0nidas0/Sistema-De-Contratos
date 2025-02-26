@@ -1,6 +1,17 @@
 package com.example.contratos.dto;
 
-import java.time.LocalDate;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import java.math.BigDecimal;
 
-public record ContratoRequestDTO (String titulo, String empresaContratante, LocalDate dataTermino){
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+public class ContratoRequestDTO {
+    private String nome;
+    private String descricao;
+    private BigDecimal valor;
 }
