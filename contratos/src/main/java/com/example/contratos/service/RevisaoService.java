@@ -12,7 +12,7 @@ import java.util.List;
 
 @Service
 public class RevisaoService {
-    private final RevisaoRepository  revisaoRepository;
+    private final RevisaoRepository revisaoRepository;
     private final ContratoRepository contratoRepository;
 
     public RevisaoService(RevisaoRepository revisaoRepository, ContratoRepository contratoRepository) {
@@ -21,7 +21,7 @@ public class RevisaoService {
     }
 
     public Revisao createRevisao(Long contratoId, Revisao revisao) {
-        Contrato contrato = contratoRepository.findById(contratoId).orElseThrow(() -> new RuntimeException("Contrato nao encontrado"));
+        Contrato contrato = contratoRepository.findById(contratoId).orElseThrow(() -> new RuntimeException("Contrato não encontrado"));
 
         revisao.setContrato(contrato);
         revisao.setDataRevisao(LocalDate.now());
@@ -30,8 +30,8 @@ public class RevisaoService {
         return revisaoRepository.save(revisao);
     }
 
-    public List<Revisao> getrevisaoByContrato(Long contratoId) {
-        return revisaoRepository.findBycontratoId(contratoId);
+    public List<Revisao> getRevisaoByContrato(Long contratoId) {
+        return revisaoRepository.findByContratoId(contratoId);
     }
 
     public List<Revisao> getRevisaoBystatus(StatusRevisao status){
@@ -39,13 +39,13 @@ public class RevisaoService {
     }
 
     public Revisao addComentario(Long revisaoId, String comentario) {
-        Revisao revisao = revisaoRepository.findById(revisaoId).orElseThrow(() -> new RuntimeException("Revisao nao encontrada"));
+        Revisao revisao = revisaoRepository.findById(revisaoId).orElseThrow(() -> new RuntimeException("Revisão não encontrada"));
         revisao.setComentarios(comentario);
         return revisaoRepository.save(revisao);
     }
 
     public Revisao alterarStatus(Long revisaoId, StatusRevisao novoStatus) {
-        Revisao revisao = revisaoRepository.findById(revisaoId).orElseThrow(() -> new RuntimeException("Revisao nao encontrada"));
+        Revisao revisao = revisaoRepository.findById(revisaoId).orElseThrow(() -> new RuntimeException("Revisão não encontrada"));
 
         revisao.setStatus(novoStatus);
         return revisaoRepository.save(revisao);

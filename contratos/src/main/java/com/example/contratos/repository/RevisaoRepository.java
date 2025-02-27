@@ -10,5 +10,5 @@ import java.util.List;
 @Repository
 public interface RevisaoRepository extends JpaRepository<Revisao, Long> {
     List<Revisao> findByStatus(StatusRevisao status);
-    List<Revisao> findBycontratoId(Long contratoId);
+    List<Revisao> findByContratoId(Long contratoId);
 }
